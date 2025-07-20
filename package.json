@@ -1,0 +1,37 @@
+{
+  "name": "sails-inventory-app",
+  "private": true,
+  "version": "0.0.0",
+  "description": "A Sails application for inventory and order management.",
+  "keywords": [],
+  "dependencies": {
+    "@sailshq/connect-redis": "^3.2.1",
+    "@sailshq/lodash": "^3.10.3",
+    "@sailshq/socket.io-redis": "^5.2.0",
+    "grunt": "1.0.4",
+    "sails": "^1.5.9",
+    "sails-hook-grunt": "^5.0.0",
+    "sails-hook-orm": "^4.0.0",
+    "sails-hook-sockets": "^2.0.0",
+    "sails-mongo": "^2.0.1"
+  },
+  "devDependencies": {
+    "eslint": "5.16.0"
+  },
+  "scripts": {
+    "start": "NODE_ENV=production node app.js",
+    "test": "npm run lint && npm run custom-tests && echo 'Done.'",
+    "lint": "eslint . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your code looks good.'",
+    "custom-tests": "echo \"No custom tests yet.\""
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/anonymous node/sails user/sails-inventory-app.git"
+  },
+  "author": "anonymous node/sails user",
+  "license": "",
+  "engines": {
+    "node": "^18.12"
+  }
+}
