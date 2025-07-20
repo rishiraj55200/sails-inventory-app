@@ -1,119 +1,111 @@
-🛒 Sails Inventory App — Backend System
-A backend system for a small business that helps digitize inventory, manage customer orders, and allow admins to monitor and update the order flow.
+# 🛒 Inventory & Order Management System – Backend
 
-📌 Features
-👨‍💼 Staff (Inventory Management)
-Add / update / delete products
+This project is built for a small business to digitize inventory, manage customer orders, and help admins/staff track and update the order flow.
 
-View product list with stock quantity
+---
 
-Mark low-stock products for restocking
+## 🚀 Tech Stack
 
-🧑‍💻 Customers
-View products
+- **Backend Framework**: Node.js + Sails.js
+- **Database**: MongoDB
+- **ORM/ODM**: Waterline (default in Sails.js)
+- **Authentication**: (Optional – add if implemented)
 
-Place orders
+---
 
-Track order status
+## 🗂️ Project Structure
 
-👑 Admin
-View all orders
+/api
+/controllers -> Business logic for APIs
+/models -> MongoDB models
+/services -> (optional helpers)
+config/ -> Sails and DB config
+routes.js -> All API routes
 
-Update order status (Processing → Shipped → Delivered)
-
-Manage staff and customers
-
-🗃️ Database Design (ER Diagram)
-markdown
+yaml
 Copy
 Edit
-Customer
----------
-id (PK)
-name
-email
-password
 
-Product
----------
-id (PK)
-name
-description
-price
-stock
+---
 
-Order
----------
-id (PK)
-customer_id (FK)
-order_date
-status
+## ⚙️ Setup Instructions
 
-OrderItem
----------
-id (PK)
-order_id (FK)
-product_id (FK)
-quantity
-price
+1. **Clone the repository**
 
-Admin
----------
-id (PK)
-name
-email
-password
+```bash
+git clone https://github.com/rishiraj55200/sails-inventory-app.git
+cd sails-inventory-app
+Install dependencies
 
-Staff
----------
-id (PK)
-name
-email
-password
-🔗 API Endpoints
-🛍️ Product APIs
-Method	Endpoint	Description
-GET	/products	List all products
-GET	/products/:id	Get product by ID
-POST	/products	Add new product (staff)
-PUT	/products/:id	Update product
-DELETE	/products/:id	Delete product
-
-👤 Customer APIs
-Method	Endpoint	Description
-POST	/customers/register	Register new customer
-POST	/customers/login	Customer login
-GET	/customers/:id/orders	Get customer orders
-
-📦 Order APIs
-Method	Endpoint	Description
-POST	/orders	Place new order (customer)
-GET	/orders/:id	Get order by ID
-PUT	/orders/:id	Update order status (admin)
-
-🔐 Admin APIs
-Method	Endpoint	Description
-POST	/admin/login	Admin login
-GET	/admin/orders	View all orders
-
-🚀 Tech Stack
-Language: Go (Golang)
-
-Framework: Gin
-
-Database: PostgreSQL
-
-ORM: GORM
-
-Authentication: JWT or session-based (as per implementation)
-
-💻 Setup Instructions
 bash
 Copy
 Edit
-# Clone the repository
-git clone https://github.com/rishiraj55200/sails-inventory-app.git
-cd sails-inventory-app
+npm install
+Configure MongoDB
 
-# Configure your PostgreSQL database credentials in .env file
+Update config/datastores.js with your MongoDB URI.
 
+js
+Copy
+Edit
+default: {
+  adapter: 'sails-mongo',
+  url: 'mongodb://localhost:27017/inventory-db',
+},
+Run the server
+
+bash
+Copy
+Edit
+sails lift
+📦 API Endpoints
+📌 Product Routes (Staff/Admin)
+Method	Route	Description
+GET	/products	Get all products
+GET	/products/:id	Get product by ID
+POST	/products	Add a product
+PUT	/products/:id	Update a product
+DELETE	/products/:id	Delete a product
+
+👥 Customer Routes
+Method	Route	Description
+POST	/customers/register	Register new customer
+POST	/customers/login	Customer login
+GET	/customers/:id/orders	View customer orders
+
+📦 Order Routes
+Method	Route	Description
+POST	/orders	Place a new order
+GET	/orders/:id	Get order details
+
+👑 Admin Routes
+Method	Route	Description
+GET	/admin/orders	View all orders
+PUT	/admin/orders/:id	Update order status
+
+📄 ER Diagram
+You can find the ER diagram in the file ER_Diagram.pdf attached in the repo/docs.
+
+📌 Features Overview
+Manage product inventory
+
+Customer registration and ordering
+
+Admin order tracking
+
+Order status update flow
+
+MongoDB integration
+
+RESTful APIs using Sails.js
+
+
+
+---
+
+Let me know if you want to add:
+- Postman collection link
+- Deployed URL (if any)
+- Sample data or `.env` instructions
+
+I can update the README accordingly.
